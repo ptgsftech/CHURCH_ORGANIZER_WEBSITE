@@ -1,0 +1,175 @@
+/******************************************************
+ * CHURCH ORGANIZER WEBSITE - STYLE.CSS
+ * -------------------------------------
+ * ✨ Features:
+ * - Light and Dark Theme (auto + toggle ready)
+ * - Smooth transitions
+ * - Responsive layout
+ * - Clean card-based UI
+ ******************************************************/
+
+/* ✅ GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ✅ ROOT VARIABLES (Light Theme Defaults) */
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #222;
+  --header-bg: #ffffff;
+  --header-text: #422006;
+  --card-bg: #ffffff;
+  --card-hover-bg: #f1f1f1;
+  --border-color: #e0e0e0;
+  --overlay-bg: rgba(255, 255, 255, 0.85);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --accent-color: #8b4513; /* brown tone */
+  --muted-color: #6c757d;
+}
+
+/* ✅ DARK THEME VARIABLES */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f8f8f8;
+  --header-bg: #1e1e1e;
+  --header-text: #f9e7d9;
+  --card-bg: #1e1e1e;
+  --card-hover-bg: #2a2a2a;
+  --border-color: #333;
+  --overlay-bg: rgba(0, 0, 0, 0.75);
+  --shadow-color: rgba(255, 255, 255, 0.05);
+  --accent-color: #c49a6c;
+  --muted-color: #b0b0b0;
+}
+
+/* ✅ PAGE BASE STYLES */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ✅ HEADER STYLING */
+header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 6px var(--shadow-color);
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header img {
+  height: 50px;
+  width: auto;
+  border-radius: 10px;
+  margin-right: 12px;
+}
+
+header span {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ✅ MAIN CONTAINER */
+.container-fluid {
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* ✅ CARD STYLES */
+.card {
+  border: none;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 10px auto;
+  max-width: 400px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  background-color: var(--card-hover-bg);
+  box-shadow: 0 4px 14px var(--shadow-color);
+}
+
+/* ✅ TEXT STYLES */
+.text-muted {
+  color: var(--muted-color) !important;
+  font-size: 0.9rem;
+}
+
+/* ✅ LOADING OVERLAY */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: background 0.3s ease;
+}
+
+.loading-video {
+  width: 120px;
+  height: auto;
+  opacity: 0.85;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* ✅ DARK MODE TOGGLE BUTTON */
+#themeToggle {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: var(--header-text);
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+#themeToggle:hover {
+  transform: scale(1.1);
+}
+
+/* ✅ RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+  header span {
+    font-size: 1.2rem;
+  }
+
+  .loading-video {
+    width: 90px;
+  }
+}
+
+/* ✅ SUPPORTS SYSTEM DARK MODE AUTOMATICALLY */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #f8f8f8;
+    --header-bg: #1e1e1e;
+    --header-text: #f9e7d9;
+    --card-bg: #1e1e1e;
+    --card-hover-bg: #2a2a2a;
+    --border-color: #333;
+    --overlay-bg: rgba(0, 0, 0, 0.75);
+    --shadow-color: rgba(255, 255, 255, 0.05);
+    --accent-color: #c49a6c;
+    --muted-color: #b0b0b0;
+  }
+}
